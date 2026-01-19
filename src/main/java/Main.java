@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Collection;
 
 class Main {
 
@@ -30,14 +31,21 @@ class Main {
             break;
             
           case 3:
-            System.out.println("Podaj imię studenta do wyszukania:");
-            String searchName = scanner.nextLine();
-            Student foundStudent = s.findStudentByName(searchName);
-            if (foundStudent != null)
-              System.out.println("Znaleziono studenta: " + foundStudent.ToString());
-            else
+          System.out.println("Podaj imię studenta do wyszukania:");
+          String searchName = scanner.nextLine(); //5.2
+
+          Collection<Student> foundStudents = s.findStudentByName(searchName);
+
+          if (!foundStudents.isEmpty()) {
+              System.out.println("Znaleziono studentów:");
+              for (Student student : foundStudents) {
+                  System.out.println(student.toString());
+              }
+          } else {
               System.out.println("Nie znaleziono studenta o podanym imieniu.");
-            break;
+          }
+          break;
+
 
             
           case 4:
