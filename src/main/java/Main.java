@@ -13,13 +13,14 @@ class Main {
         switch (number) {
           case 1:
             System.out.println("Podaj imię nowego studenta:");
-            String name = scanner.nextLine(); // 4.1
+            String name = scanner.nextLine(); // 4.1 i 5.1
             System.out.println("Podaj wiek:");
             int age = scanner.nextInt();
-            System.out.println("Podaj date urodzenia:");
-            int date = scanner.nextInt();
             scanner.nextLine();
-            s.addStudent(new Student(name, age, date));
+            System.out.println("Podaj date urodzenia:");
+            String date = scanner.nextLine();
+            s.addStudent(new Student( name, age, date));
+
             break;
 
           case 2:
