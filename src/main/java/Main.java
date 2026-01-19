@@ -32,23 +32,46 @@ class Main {
             
           case 3:
           System.out.println("Podaj imię studenta do wyszukania:");
-          String searchName = scanner.nextLine(); //5.2
+          String searchName = scanner.nextLine();
 
           Collection<Student> foundStudents = s.findStudentByName(searchName);
 
           if (!foundStudents.isEmpty()) {
               System.out.println("Znaleziono studentów:");
               for (Student student : foundStudents) {
-                  System.out.println(student.toString());
+                  System.out.println(student);
               }
+
+              System.out.println("Czy chcesz zmienić wiek studenta? (t/n)"); //5.1_2 i 5.1_4
+              String answer = scanner.nextLine();
+
+              if (answer.equalsIgnoreCase("t")) {
+
+                  
+                  System.out.println("Podaj dokładne imię i nazwisko studenta:");
+                  String fullName = scanner.nextLine();
+
+                  System.out.println("Podaj nowy wiek:");
+                  int newAge = Integer.parseInt(scanner.nextLine());
+
+                  boolean updated = s.updateStudentAge(fullName, newAge);
+
+                  if (updated) {
+                      System.out.println("Wiek studenta został zmieniony.");
+                  } else {
+                      System.out.println("Nie udało się zmienić wieku.");
+                  }
+              }
+
           } else {
               System.out.println("Nie znaleziono studenta o podanym imieniu.");
           }
           break;
 
+
           case 4:
             System.out.println("Podaj imię studenta do usunięcia:");
-            String removeName = scanner.nextLine(); //5.3
+            String removeName = scanner.nextLine(); //5.1_3
             boolean removed = s.removeStudent(removeName);
             if (removed)
               System.out.println("Student został usunięty.");

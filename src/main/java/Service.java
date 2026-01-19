@@ -68,5 +68,41 @@ public class Service {
 
       return removed;
   }
+  public boolean updateStudentAge(String name, int newAge) throws IOException {
+      List<String> lines = new ArrayList<>();
+      boolean updated = false;
+
+      try (BufferedReader reader = new BufferedReader(new FileReader("db.txt"))) {
+          String line;
+          while ((line = reader.readLine()) != null) {
+
+              System.out.println("Czytam: " + line); 
+
+              String[] parts = line.split(" ");
+
+              
+              if (parts.length >= 3 && parts[0].equalsIgnoreCase(name)) {
+                  lines.add(parts[0] + " " + newAge + " " + parts[2]);
+                  updated = true;
+              } else {
+                  lines.add(line);
+              }
+          }
+      }
+
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter("db.txt"))) {
+          for (String l : lines) {
+              writer.write(l);
+              writer.newLine();
+          }
+      }
+
+      return updated;
+  }
+
+
+  
+
+
 
 }
