@@ -30,6 +30,14 @@ class Main {
             break;
             
           case 3:
+            System.out.println("Podaj imię studenta do wyszukania:");
+            String searchName = scanner.nextLine();
+            Student foundStudent = s.findStudentByName(searchName);
+            if (foundStudent != null)
+              System.out.println("Znaleziono studenta: " + foundStudent.ToString());
+            else
+              System.out.println("Nie znaleziono studenta o podanym imieniu.");
+            break;
 
             
           case 4:
