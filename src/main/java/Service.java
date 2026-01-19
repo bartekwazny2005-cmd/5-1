@@ -44,4 +44,29 @@ public class Service {
     }
     return students;
   }
+  public boolean removeStudent(String name) throws IOException {
+      List<String> lines = new ArrayList<>();
+      boolean removed = false;
+
+      try (BufferedReader reader = new BufferedReader(new FileReader("db.txt"))) {
+          String line;
+          while ((line = reader.readLine()) != null) {
+              if (!line.contains(name)) {
+                  lines.add(line);
+              } else {
+                  removed = true;
+              }
+          }
+      }
+
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter("db.txt"))) {
+          for (String l : lines) {
+              writer.write(l);
+              writer.newLine();
+          }
+      }
+
+      return removed;
+  }
+
 }

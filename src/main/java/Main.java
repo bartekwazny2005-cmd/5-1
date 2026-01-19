@@ -46,9 +46,19 @@ class Main {
           }
           break;
 
+          case 4:
+            System.out.println("Podaj imię studenta do usunięcia:");
+            String removeName = scanner.nextLine(); //5.3
+            boolean removed = s.removeStudent(removeName);
+            if (removed)
+              System.out.println("Student został usunięty.");
+            else
+              System.out.println("Nie znaleziono studenta o podanym imieniu.");
+
+           break;
 
             
-          case 4:
+          case 5:
             System.out.println("Zakończono program. Do zobaczenia!");
             kontynuuj = false; //wyjscie z petli 
             break;
