@@ -22,7 +22,6 @@ class Main {
             s.addStudent(new Student( name, age, date));
 
             break;
-
           case 2:
             var students = s.getStudents();
             for (Student current : students) {
