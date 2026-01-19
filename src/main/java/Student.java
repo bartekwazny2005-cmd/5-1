@@ -22,7 +22,7 @@ public class Student {
       if(str == null || str.trim().isEmpty()) {
           return new Student("Parse Error", -1, "");
       }
-      String[] data = str.trim().split("\\s+"); 
+      String[] data = str.trim().split("\\s+"); //bóg jeden wie dlaczego to działa
       if(data.length != 3) {
           return new Student("Parse Error", -1, "");
       }

@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 public class Service {
 
   public void addStudent(Student student) throws IOException {
@@ -30,7 +31,17 @@ public class Service {
     return ret;
   }
 
-  public Student findStudentByName(String name) {
-    return null;
+  public Collection<Student> findStudentByName(String findLine) throws IOException {
+    List<Student> students = new ArrayList<>();
+    try (BufferedReader reader = new BufferedReader(new FileReader("db.txt"))){
+      String line;
+      while ((line = reader.readLine()) != null){
+        String[] parts = line.split(" ");
+        if (parts.length> 0 && parts[0].equalsIgnoreCase(findLine)){
+          students.add(Student.Parse(line));
+        }
+      }
+    }
+    return students;
   }
 }

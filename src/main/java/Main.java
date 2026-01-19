@@ -28,8 +28,11 @@ class Main {
               System.out.println(current.ToString()); // 4.2
             }
             break;
-
+            
           case 3:
+
+            
+          case 4:
             System.out.println("Zakończono program. Do zobaczenia!");
             kontynuuj = false; //wyjscie z petli 
             break;
