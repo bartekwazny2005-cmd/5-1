@@ -16,8 +16,10 @@ class Main {
             String name = scanner.nextLine(); // 4.1
             System.out.println("Podaj wiek:");
             int age = scanner.nextInt();
+            System.out.println("Podaj date urodzenia:");
+            int date = scanner.nextInt();
             scanner.nextLine();
-            s.addStudent(new Student(name, age));
+            s.addStudent(new Student(name, age, date));
             break;
 
           case 2:

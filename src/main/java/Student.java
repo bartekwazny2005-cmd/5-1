@@ -4,7 +4,7 @@ public class Student {
   private int Age;
   private String Date;
 
-  public Student(String name, int age, String Date) {
+  public Student(String name, int age, String date) {
     Name = name;
     Age = age;
     this.Date = date;
